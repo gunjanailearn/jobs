@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta name="color-scheme" content="dark">
-<title>Kind words - Job Board</title>
+<title>Wall of Thanks - Job Board</title>
 <style>
   :root{
     color-scheme: dark;
@@ -181,7 +181,7 @@
   header{ gap:12px; align-items:center; }
 
 
-  /* testimonials: "Kind words" + feedback box */
+  /* testimonials: "Wall of Thanks" + feedback box */
   .kind{ margin-top:26px; }
   .kind h3{ margin:0 0 10px; font-size:1rem; }
   .quotes{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
@@ -252,7 +252,7 @@
 </style>
 </head>
 <body>
-<script>window.__BOARD__ = {"updated":"02 Nov 2026, 08:26 AM","testimonials":[{"name":"Asha","profile":"Product","text":"Example only: replace this with a real message you have approved."}],"today":"2026-11-02","groups":{"Product":{"url":"https://chat.whatsapp.com/Ee1Zi2opDul2xBg5tEoVWv","label":"Business Analyst / Product Owner"},"Project Management":{"url":"https://chat.whatsapp.com/IDj2yVRlzcMELfn81lGad7","label":"Project Management"},"Quality Assurance":{"url":"https://chat.whatsapp.com/CH0jGR1uVP8JFM1DfFGwMR","label":"Testing"}},"hideAll":true,"page":"kindwords","multi":true,"title":"Job Board","profileRoles":{"Project Management":["Scrum Master","Agile Delivery Manager","Project Manager"],"Product":["Business Analyst","Product Manager","Product Owner"],"Quality Assurance":["Functional Testing","Automation Testing"]}}; window.__PRELOADED_JOBS__ = [];</script>
+<script>window.__BOARD__ = {"updated":"02 Nov 2026, 08:30 AM","testimonials":[{"name":"Asha","profile":"Product","text":"Example only: replace this with a real message you have approved."}],"today":"2026-11-02","groups":{"Product":{"url":"https://chat.whatsapp.com/Ee1Zi2opDul2xBg5tEoVWv","label":"Business Analyst / Product Owner"},"Project Management":{"url":"https://chat.whatsapp.com/IDj2yVRlzcMELfn81lGad7","label":"Project Management"},"Quality Assurance":{"url":"https://chat.whatsapp.com/CH0jGR1uVP8JFM1DfFGwMR","label":"Testing"}},"hideAll":true,"page":"thanks","multi":true,"title":"Job Board","profileRoles":{"Project Management":["Scrum Master","Agile Delivery Manager","Project Manager"],"Product":["Business Analyst","Product Manager","Product Owner"],"Quality Assurance":["Functional Testing","Automation Testing"]}}; window.__PRELOADED_JOBS__ = [];</script>
 
 <div class="wrap">
   <header>
@@ -315,7 +315,7 @@
     <div class="empty">No jobs loaded yet. Upload or paste your scraped JSON above.</div>
   </main>
 
-  <footer>Keep/Skip marks are saved in your own browser only. Anonymous visit counts, no cookies.<span id="kwFooter" style="display:none;"> · <a class="footlink" href="kind-words.html">Kind words</a></span><span id="fbFooter" style="display:none;"> · <button type="button" class="footlink" data-open-feedback>Share your experience</button></span></footer>
+  <footer>Keep/Skip marks are saved in your own browser only. Anonymous visit counts, no cookies.<span id="kwFooter" style="display:none;"> · <a class="footlink" href="thanks.html">Wall of Thanks</a></span><span id="fbFooter" style="display:none;"> · <button type="button" class="footlink" data-open-feedback>Share your experience</button></span></footer>
 </div>
 
 <div class="maker-overlay" id="makerOverlay" hidden></div>
@@ -518,10 +518,10 @@ function renderKindPage(){
   const fb = feedbackEnabled() ? '<button type="button" class="fbbtn" data-open-feedback>★ Share your experience</button>' : '';
   const body = tests.length
     ? `<div class="quotes">${tests.map(t => `<figure class="quote"><blockquote>“${esc(t.text)}”</blockquote><figcaption>${esc(t.name || 'Anonymous')}${t.profile ? ' · ' + esc(t.profile) : ''}</figcaption></figure>`).join('')}</div>`
-    : '<div class="empty"><h3>No messages yet</h3><div>Be the first to share how this board helped you.</div></div>';
+    : '<div class="empty"><h3>No messages yet</h3><div>Be the first to say thanks and share how this board helped you.</div></div>';
   document.getElementById('tableWrap').innerHTML =
-    `<div class="choose"><a class="backlink" href="${HOME_URL}">← Back to jobs</a><h2>Kind words</h2><p>Messages from people who use this board, shared with their permission after review.</p>${body}${fb}</div>`;
-  track({ path: '/kind-words', title: 'Kind words' });
+    `<div class="choose"><a class="backlink" href="${HOME_URL}">← Back to jobs</a><h2>Wall of Thanks</h2><p>Messages from people who use this board, shared with their permission after review.</p>${body}${fb}</div>`;
+  track({ path: '/thanks', title: 'Wall of Thanks' });
 }
 
 /* ---------- testimonials: feedback box (messages are emailed to you; nothing shows until you approve it) ---------- */
@@ -765,7 +765,7 @@ function showChooser(){
     return `<button type="button" class="pcard" data-p="${escAttr(p)}"><strong>${esc(p)}</strong><span>${esc((r || []).join(' · '))}</span><em>${n} jobs</em></button>`;
   }).join('');
   const tests = approvedTestimonials();
-  const kind = tests.length ? `<a class="kindlink" href="kind-words.html"><span style="color:var(--ink)">♥ Kind words from the community</span><span>${tests.length} ${tests.length === 1 ? 'message' : 'messages'} →</span></a>` : '';
+  const kind = tests.length ? `<a class="kindlink" href="thanks.html"><span style="color:var(--ink)">♥ Wall of Thanks</span><span>${tests.length} ${tests.length === 1 ? 'message' : 'messages'} →</span></a>` : '';
   const fb = feedbackEnabled() ? '<button type="button" class="fbbtn" data-open-feedback>★ Share your experience</button>' : '';
   document.getElementById('tableWrap').innerHTML =
     `<div class="choose"><h2>Which jobs are you looking for?</h2><p>Pick your profile to see the latest listings. You can switch any time.</p><div class="cards">${cards}</div>${kind}${fb}</div>`;
@@ -818,7 +818,7 @@ function render(reset){
 
 // Back to the profile chooser (Home button and the logo/title)
 function goHome(){
-  if (window.__BOARD__ && window.__BOARD__.page === 'kindwords'){ location.href = HOME_URL; return; }
+  if (window.__BOARD__ && window.__BOARD__.page === 'thanks'){ location.href = HOME_URL; return; }
   if (!(tabsAvailable && window.__BOARD__ && window.__BOARD__.hideAll)) return;
   activeProfile = '';
   try { localStorage.removeItem(PROFILE_KEY); } catch(e){}
@@ -954,7 +954,7 @@ if (window.__BOARD__){
   document.getElementById('filters').style.display = 'flex';
   document.getElementById('stats').style.display = 'grid';
 }
-if (window.__BOARD__ && window.__BOARD__.page === 'kindwords'){
+if (window.__BOARD__ && window.__BOARD__.page === 'thanks'){
   renderKindPage();
 } else if (window.__BOARD__ && window.__BOARD__.hideAll && approvedTestimonials().length){
   document.getElementById('kwFooter').style.display = '';
