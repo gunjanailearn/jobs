@@ -298,11 +298,95 @@
     .stats{ grid-template-columns:repeat(2,1fr); }
     .job{ padding:14px; }
   }
+    /* ===== Announcement banner ===== */
+  .notice{ background:var(--accent-bg); border-bottom:1px solid var(--accent); }
+  .notice[hidden]{ display:none; }
+  .notice-in{ max-width:1080px; margin:0 auto; padding:13px 16px; display:flex; align-items:center; gap:14px; }
+  .notice-dot{ width:8px; height:8px; border-radius:50%; background:var(--accent); flex:none; }
+  .notice-msgs{ display:grid; flex:1; min-width:0; font-size:1.02rem; font-weight:600; line-height:1.45; }
+  .notice-msg{ grid-area:1 / 1; opacity:0; transition:opacity .5s ease; pointer-events:none; }
+  .notice-msg.on{ opacity:1; pointer-events:auto; }
+  .notice-msgs.static .notice-msg{ grid-area:auto; opacity:1; pointer-events:auto; margin-bottom:4px; }
+  .notice-btn{ flex:none; background:var(--accent); color:#0E1220; font-weight:700; font-size:0.85rem; padding:6px 12px; border-radius:8px; text-decoration:none; }
+  .notice-btn[hidden]{ display:none; }
+  .notice-x{ flex:none; background:transparent; border:0; color:inherit; font-size:1.5rem; line-height:1; cursor:pointer; padding:6px 10px; }
+  @media (max-width:640px){
+    .notice-in{ flex-wrap:wrap; }
+    .notice-msgs{ flex-basis:calc(100% - 24px); font-size:0.95rem; }
+    .notice-x{ margin-left:auto; }
+  }
+    .notice{ background:#3A2A0E; border-bottom:2px solid #F5B942; }
+  .notice-dot{ background:#F5B942; }
+  .notice-btn{ background:#F5B942; }
+  
 </style>
 </head>
 <body>
-<script>window.__BOARD__ = {"updated":"20 Nov 2026, 10:24 PM","testimonials":[{"name":"Anonymous","profile":"","text":"Nice to see all the jobs in single page, instead of searching multiple websites. Thanks for this wonderful initiative"},{"name":"Krapi G","profile":"Project Management","text":"Thanks, I have been waiting for this portal from a longer time. a person who understands job hunt pain can only understand this issue. Go to every job portal and search suitable opportunity and this web page help every person for job hunt and apply in lesser time. it saves time and energy. this is really amazing thanks once again for this open platform. Kindly accept request and add SM roles too."},{"name":"Barkha","profile":"Project Management","text":"Thank you so much for sharing all the job openings in one place. It really saves us the time and effort of searching across multiple platforms. I genuinely appreciate you making the job search process so much easier and convenient. Thanks again for your efforts!"},{"name":"Shailesh","profile":"Product","text":"Hi! The board is super helpful. Would it be possible to add a track/category for Data Science, Data Analytics, and AI Engineering roles as well? That would be really valuable!"},{"name":"Robin","profile":"Product","text":"Brilliant efforts sourcing from multiple sites for job aspoirants.. would love to see more remote opportunities flow here"}],"today":"2026-11-20","groups":{"Product":{"url":"https://chat.whatsapp.com/Ee1Zi2opDul2xBg5tEoVWv","label":"Business Analyst / Product Owner"},"Project Management":{"url":"https://chat.whatsapp.com/IDj2yVRlzcMELfn81lGad7","label":"Project Management"},"Quality Assurance":{"url":"https://chat.whatsapp.com/CH0jGR1uVP8JFM1DfFGwMR","label":"Testing"}},"hideAll":true,"profileCities":{"Project Management":["Gurgaon","Bangalore","Hyderabad","Chennai","Pune","Kolkata"],"Product":["Gurgaon","Bangalore","Pune","Kolkata"],"Quality Assurance":["Gurgaon","Bangalore","Hyderabad"],"DevOps":["Gurgaon","Bangalore","Hyderabad","Mumbai"]},"page":"thanks","multi":true,"title":"Job-Saathi","profileRoles":{"Project Management":["Scrum Master","Agile Delivery Manager","Project Manager","Agile Coach","Program Manager"],"Product":["Business Analyst","Product Manager","Product Owner"],"Quality Assurance":["Functional Testing","Automation Testing"],"DevOps":["DevOps Engineer","Site Reliability Engineer","Cloud Infrastructure Engineer"]}}; window.__PRELOADED_JOBS__ = [];</script>
+<script>window.__BOARD__ = {"updated":"21 Nov 2026, 01:13 AM","testimonials":[{"name":"Anonymous","profile":"","text":"Nice to see all the jobs in single page, instead of searching multiple websites. Thanks for this wonderful initiative"},{"name":"Krapi G","profile":"Project Management","text":"Thanks, I have been waiting for this portal from a longer time. a person who understands job hunt pain can only understand this issue. Go to every job portal and search suitable opportunity and this web page help every person for job hunt and apply in lesser time. it saves time and energy. this is really amazing thanks once again for this open platform. Kindly accept request and add SM roles too."},{"name":"Barkha","profile":"Project Management","text":"Thank you so much for sharing all the job openings in one place. It really saves us the time and effort of searching across multiple platforms. I genuinely appreciate you making the job search process so much easier and convenient. Thanks again for your efforts!"},{"name":"Shailesh","profile":"Product","text":"Hi! The board is super helpful. Would it be possible to add a track/category for Data Science, Data Analytics, and AI Engineering roles as well? That would be really valuable!"},{"name":"Robin","profile":"Product","text":"Brilliant efforts sourcing from multiple sites for job aspoirants.. would love to see more remote opportunities flow here"}],"today":"2026-11-21","groups":{"Product":{"url":"https://chat.whatsapp.com/Ee1Zi2opDul2xBg5tEoVWv","label":"Business Analyst / Product Owner"},"Project Management":{"url":"https://chat.whatsapp.com/IDj2yVRlzcMELfn81lGad7","label":"Project Management"},"Quality Assurance":{"url":"https://chat.whatsapp.com/CH0jGR1uVP8JFM1DfFGwMR","label":"Testing"},"DevOps":{"url":"https://chat.whatsapp.com/HqrrXsxQTpJ7RQDQ0b4hSA","label":"DevOps"}},"hideAll":true,"profileCities":{"Project Management":["Gurgaon","Bangalore","Hyderabad","Chennai","Pune","Kolkata"],"Product":["Gurgaon","Bangalore","Pune","Kolkata"],"Quality Assurance":["Gurgaon","Bangalore","Hyderabad"],"DevOps":["Gurgaon","Bangalore","Hyderabad","Mumbai"]},"page":"thanks","multi":true,"title":"Job-Saathi","profileRoles":{"Project Management":["Scrum Master","Agile Delivery Manager","Project Manager","Agile Coach","Program Manager"],"Product":["Business Analyst","Product Manager","Product Owner"],"Quality Assurance":["Functional Testing","Automation Testing"],"DevOps":["DevOps Engineer","Site Reliability Engineer","Cloud Infrastructure Engineer"]}}; window.__PRELOADED_JOBS__ = [];</script>
+<div id="noticeBar" class="notice" role="region" aria-label="Announcement" hidden>
+  <div class="notice-in">
+    <span class="notice-dot" aria-hidden="true"></span>
+    <div class="notice-msgs" id="noticeMsgs" aria-live="polite"></div>
+    <a class="notice-btn" id="noticeJoin" href="#" target="_blank" rel="noopener noreferrer" hidden>Join WhatsApp group</a>
+    <button class="notice-x" id="noticeClose" type="button" aria-label="Dismiss announcement">&times;</button>
+  </div>
+</div>
+<script>
+(function(){
+  var MESSAGES = [
+    'Job-Saathi is moving to a new web address between 25 and 30 November. This address will stop working after the move.',
+    'Join our WhatsApp group to get the new link and daily job updates.'
+  ];
+  var WA_URL = '';   // optional: paste one https://chat.whatsapp.com/... link here; if empty, the first profile group is used
+  var END = new Date('2026-12-01T00:00:00+05:30');   // the banner disappears by itself after 30 November
+  if (new Date() > END) return;
+  try { if (sessionStorage.getItem('noticeClosed') === '1') return; } catch(e){}
+  var bar = document.getElementById('noticeBar'), box = document.getElementById('noticeMsgs');
+  var join = document.getElementById('noticeJoin'), closeBtn = document.getElementById('noticeClose');
+  if (!bar || !box) return;
 
+    var WA_RE = /^https:\/\/chat\.whatsapp\.com\//;
+  var groups = (window.__BOARD__ && window.__BOARD__.groups) || {};
+  function slugOf(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, ''); }
+  function pickUrl(){
+    var raw = (location.hash || '').replace('#', '');
+    try { raw = decodeURIComponent(raw); } catch(e){}
+    var h = slugOf(raw), keys = Object.keys(groups), k, u;
+    for (k = 0; k < keys.length; k++){
+      u = String((groups[keys[k]] || {}).url || '');
+      if (h && slugOf(keys[k]) === h && WA_RE.test(u)) return u;   // the profile being viewed
+    }
+    if (WA_RE.test(WA_URL)) return WA_URL;                           // your chosen fallback
+    for (k = 0; k < keys.length; k++){
+      u = String((groups[keys[k]] || {}).url || '');
+      if (WA_RE.test(u)) return u;                                   // otherwise the first group
+    }
+    return '';
+  }
+  function refreshJoin(){ var u = pickUrl(); if (u){ join.href = u; join.hidden = false; } else { join.hidden = true; } }
+  refreshJoin();
+  window.addEventListener('hashchange', refreshJoin);
+  join.addEventListener('click', refreshJoin);
+
+  MESSAGES.forEach(function(t){
+    var s = document.createElement('span'); s.className = 'notice-msg'; s.textContent = t; box.appendChild(s);
+  });
+  var items = box.children, i = 0, timer = null;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(n){ for (var k = 0; k < items.length; k++) items[k].classList.toggle('on', k === n); }
+  function start(){ if (timer || reduce || items.length < 2) return; timer = setInterval(function(){ i = (i + 1) % items.length; show(i); }, 6000); }
+  function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+  if (reduce){ box.classList.add('static'); } else { show(0); }
+  bar.addEventListener('mouseenter', stop); bar.addEventListener('mouseleave', start);
+  bar.addEventListener('focusin', stop); bar.addEventListener('focusout', start);
+  closeBtn.addEventListener('click', function(){
+    stop(); bar.hidden = true;
+    try { sessionStorage.setItem('noticeClosed', '1'); } catch(e){}
+  });
+  bar.hidden = false;
+  start();
+})();
+</script>
 <div class="wrap">
   <header>
     <div class="brand">
